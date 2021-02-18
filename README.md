@@ -2,7 +2,7 @@
 
 You can use this repository to test if you can use Nest CQRS on AWS lambda.
 
-###**TLDR: You can't**
+### **TLDR: You can't**
 
 No, it's not possible to do so because:
 - Nest busses(command bus, event bus and query bus) are implemented as rxjs Observable stream
