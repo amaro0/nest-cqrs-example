@@ -1,8 +1,10 @@
-import { NestFactory } from '@nestjs/core';
-import { ApplicationModule } from './app.module';
+import { bootstrap } from './app';
 
-async function bootstrap() {
-  const app = await NestFactory.create(ApplicationModule);
+(async function() {
+  const app = await bootstrap();
+
   app.listen(3000, () => console.log('Application is listening on port 3000.'));
-}
-bootstrap();
+}());
+
+
+

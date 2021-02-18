@@ -1,0 +1,18 @@
+service:
+  name: nest-serverless-cqs-lambda-test
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-plugin-optimize
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  nest:
+    handler: src/handlers/http.mount
+    events:
+      - http:
+          method: any
+          path: /{any+}

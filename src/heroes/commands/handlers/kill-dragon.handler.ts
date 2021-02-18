@@ -19,5 +19,7 @@ export class KillDragonHandler implements ICommandHandler<KillDragonCommand> {
     );
     hero.killEnemy(dragonId);
     hero.commit();
+
+    return dragonId;
   }
 }
