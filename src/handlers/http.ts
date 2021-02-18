@@ -1,5 +1,5 @@
 import { bootstrap } from '../app';
-import serverlessExpress = require('@vendia/serverless-express');
+const serverlessExpress = require('@vendia/serverless-express');
 
 
 export const mount = async () => {
