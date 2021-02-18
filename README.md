@@ -1,20 +1,10 @@
 [![Nest Logo](http://kamilmysliwiec.com/public/nest-logo.png)](http://kamilmysliwiec.com/)
 
-[Nest](https://github.com/kamilmysliwiec/nest) framework [CQRS module](https://github.com/kamilmysliwiec/nest-cqrs) usage example.
+You can use this repository to test if you can use Nest CQRS on AWS lambda.
 
-## Installation
+###**TLDR: You can't**
 
-```
-$ npm install
-```
-
-## Start
-
-```
-$ npm run start
-```
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
+No, it's not possible to do so because:
+- Nest busses(command bus, event bus and query bus) are implemented as rxjs Observable stream
+- Lambda internals do not await for Observables and `contextWaitForEmptyEventLoop` does nothing in this case
+- After testing, it turned out that lambda quits before processing of some events
